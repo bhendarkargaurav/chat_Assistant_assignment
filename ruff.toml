@@ -1,0 +1,18 @@
+line-length = 100
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = [
+    # FastAPI's Depends()/Query() defaults are the framework's idiom.
+    "B008",
+    # str+Enum keeps enum values JSON/SQL friendly on Python 3.12.
+    "UP042",
+    # Binding to 0.0.0.0 is intentional for the containerised API.
+    "S104",
+    # Retry jitter is not security sensitive.
+    "S311",
+]
+
+[lint.per-file-ignores]
+"backend/tests/*" = ["S101", "E501"]

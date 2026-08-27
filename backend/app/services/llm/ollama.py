@@ -28,7 +28,7 @@ class OllamaProvider(LLMProvider):
             "stream": False,
         }
         try:
-            with httpx.Client(timeout=120.0) as client:
+            with httpx.Client(timeout=self.settings.llm_timeout_seconds) as client:
                 response = client.post(url, json=payload)
                 response.raise_for_status()
                 data = response.json()

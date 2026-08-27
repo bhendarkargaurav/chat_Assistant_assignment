@@ -51,6 +51,36 @@ class Settings(BaseSettings):
     chunk_size: int = Field(default=800, alias="CHUNK_SIZE")
     chunk_overlap: int = Field(default=150, alias="CHUNK_OVERLAP")
     rag_top_k: int = Field(default=5, alias="RAG_TOP_K")
+    rag_essay_top_k: int = Field(default=8, alias="RAG_ESSAY_TOP_K")
+
+    log_format: Literal["text", "json"] = Field(default="text", alias="LOG_FORMAT")
+
+    llm_timeout_seconds: float = Field(default=180.0, alias="LLM_TIMEOUT_SECONDS")
+    llm_max_attempts: int = Field(default=3, alias="LLM_MAX_ATTEMPTS")
+    embedding_timeout_seconds: float = Field(
+        default=60.0, alias="EMBEDDING_TIMEOUT_SECONDS"
+    )
+    embedding_max_attempts: int = Field(default=3, alias="EMBEDDING_MAX_ATTEMPTS")
+    retry_base_delay_seconds: float = Field(
+        default=0.5, alias="RETRY_BASE_DELAY_SECONDS"
+    )
+
+    router_mode: Literal["hybrid", "rules", "llm"] = Field(
+        default="hybrid", alias="ROUTER_MODE"
+    )
+    router_confidence_threshold: float = Field(
+        default=0.45, alias="ROUTER_CONFIDENCE_THRESHOLD"
+    )
+
+    conversation_history_limit: int = Field(
+        default=10, alias="CONVERSATION_HISTORY_LIMIT"
+    )
+
+    essay_target_words: int = Field(default=1250, alias="ESSAY_TARGET_WORDS")
+    essay_word_tolerance: float = Field(default=0.12, alias="ESSAY_WORD_TOLERANCE")
+    essay_max_expansions: int = Field(default=1, alias="ESSAY_MAX_EXPANSIONS")
+
+    artifact_max_bytes: int = Field(default=1_000_000, alias="ARTIFACT_MAX_BYTES")
 
 
 @lru_cache

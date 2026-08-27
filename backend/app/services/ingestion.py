@@ -56,7 +56,7 @@ class IngestionService:
             raise ValidationAppError("Document content produced no chunks")
 
         embeddings = self.embedding_service.embed_texts(chunks)
-        for index, (chunk_content, embedding) in enumerate(zip(chunks, embeddings)):
+        for index, (chunk_content, embedding) in enumerate(zip(chunks, embeddings, strict=True)):
             self.db.add(
                 Chunk(
                     document_id=document.id,

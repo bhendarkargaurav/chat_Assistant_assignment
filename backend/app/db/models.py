@@ -20,6 +20,11 @@ class MessageRole(str, Enum):
     SYSTEM = "system"
 
 
+class ArtifactKind(str, Enum):
+    MARKDOWN = "markdown"
+    HTML = "html"
+
+
 class Session(Base):
     __tablename__ = "sessions"
 
@@ -38,6 +43,11 @@ class Session(Base):
         back_populates="session",
         cascade="all, delete-orphan",
         order_by="Message.created_at",
+    )
+    artifacts: Mapped[list["Artifact"]] = relationship(
+        back_populates="session",
+        cascade="all, delete-orphan",
+        order_by="Artifact.created_at",
     )
 
 
@@ -100,3 +110,37 @@ class Chunk(Base):
     )
 
     document: Mapped["Document"] = relationship(back_populates="chunks")
+
+
+class Artifact(Base):
+    __tablename__ = "artifacts"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    session_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("sessions.id", ondelete="CASCADE"),
+        index=True,
+        nullable=True,
+    )
+    message_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("messages.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    kind: Mapped[str] = mapped_column(String(32), index=True)
+    title: Mapped[str] = mapped_column(String(512))
+    content: Mapped[str] = mapped_column(Text)
+    skill: Mapped[str] = mapped_column(String(64))
+    word_count: Mapped[int] = mapped_column(Integer, default=0)
+    sources_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    metadata_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    session: Mapped["Session | None"] = relationship(back_populates="artifacts")
