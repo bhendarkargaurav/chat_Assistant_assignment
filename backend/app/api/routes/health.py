@@ -5,6 +5,7 @@ from sqlalchemy import text
 
 from backend.app.config import get_settings
 from backend.app.db.session import get_engine
+from backend.app.observability.metrics import METRICS
 from backend.app.services.embeddings import EmbeddingService
 from backend.app.services.llm.factory import get_llm_provider
 
@@ -31,11 +32,19 @@ def ready() -> dict:
         logger.warning("Database readiness check failed: %s", exc)
         checks["database"] = "error"
 
-    llm = get_llm_provider()
-    checks["llm"] = "ok" if llm.health_check() else "degraded"
+    try:
+        checks["llm"] = "ok" if get_llm_provider().health_check() else "degraded"
+    except Exception as exc:
+        logger.warning("LLM readiness check failed: %s", exc)
+        checks["llm"] = "error"
 
-    embedding_service = EmbeddingService()
-    checks["embeddings"] = "ok" if embedding_service.health_check() else "degraded"
+    try:
+        checks["embeddings"] = (
+            "ok" if EmbeddingService().health_check() else "degraded"
+        )
+    except Exception as exc:
+        logger.warning("Embedding readiness check failed: %s", exc)
+        checks["embeddings"] = "error"
 
     overall = "ok" if checks["database"] == "ok" else "degraded"
     return {
@@ -43,3 +52,9 @@ def ready() -> dict:
         "provider": settings.llm_provider,
         "checks": checks,
     }
+
+
+@router.get("/metrics")
+def metrics() -> dict:
+    """In-process counters and latency summaries (see observability.metrics)."""
+    return METRICS.snapshot()

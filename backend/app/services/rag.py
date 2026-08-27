@@ -1,11 +1,13 @@
 import logging
 
 from sqlalchemy import select
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session, joinedload
 
 from backend.app.config import get_settings
 from backend.app.db.models import Chunk, Document
-from backend.app.schemas.chat import SourceCitation
+from backend.app.exceptions import RetrievalError
+from backend.app.schemas.source import SourceCitation
 from backend.app.services.embeddings import EmbeddingService
 
 logger = logging.getLogger(__name__)
@@ -32,7 +34,12 @@ class RAGService:
             .order_by(distance_expr)
             .limit(limit)
         )
-        rows = self.db.execute(stmt).all()
+        try:
+            rows = self.db.execute(stmt).all()
+        except SQLAlchemyError as exc:
+            self.db.rollback()
+            logger.exception("Vector search failed")
+            raise RetrievalError(f"Vector search failed: {exc}") from exc
 
         citations: list[SourceCitation] = []
         for chunk, document, distance in rows:

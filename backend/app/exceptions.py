@@ -25,3 +25,28 @@ class ExternalServiceError(AppError):
 class ConfigurationError(AppError):
     def __init__(self, message: str) -> None:
         super().__init__(message, status_code=500)
+
+
+class LLMError(ExternalServiceError):
+    """Raised when the configured LLM provider cannot produce a completion."""
+
+
+class RetrievalError(AppError):
+    """Raised when retrieval fails in a way that cannot be degraded around."""
+
+    def __init__(self, message: str) -> None:
+        super().__init__(message, status_code=503)
+
+
+class PersistenceError(AppError):
+    """Raised when the database rejects or loses a write."""
+
+    def __init__(self, message: str) -> None:
+        super().__init__(message, status_code=503)
+
+
+class ArtifactError(AppError):
+    """Raised when artifact generation or sanitization fails."""
+
+    def __init__(self, message: str, status_code: int = 422) -> None:
+        super().__init__(message, status_code=status_code)

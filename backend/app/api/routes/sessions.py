@@ -1,3 +1,5 @@
+from uuid import UUID
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
@@ -23,9 +25,7 @@ def list_sessions(db: Session = Depends(get_db)) -> list[SessionResponse]:
 
 @router.get("/{session_id}", response_model=SessionDetailResponse)
 def get_session(
-    session_id: str,
+    session_id: UUID,
     db: Session = Depends(get_db),
 ) -> SessionDetailResponse:
-    from uuid import UUID
-
-    return SessionService(db).get_session(UUID(session_id))
+    return SessionService(db).get_session(session_id)
