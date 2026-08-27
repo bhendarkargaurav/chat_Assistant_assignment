@@ -1,0 +1,32 @@
+# Lenny's Podcast — Sample Transcript (Growth Loops)
+
+Host: Lenny Rachitsky
+Guest: Elena Verna
+
+Lenny: Welcome back to Lenny's Podcast. Today we're talking about growth loops — one of the most powerful frameworks for sustainable product growth.
+
+Elena: Thanks for having me. Growth loops are self-reinforcing cycles where the output of one cycle becomes the input for the next. Unlike funnels, which are linear and require constant top-of-funnel investment, loops compound over time.
+
+Lenny: Can you give a concrete example?
+
+Elena: Sure. Take a referral loop: a user invites a friend, the friend signs up, has a great experience, and invites another friend. Each new user feeds the next cycle. The key metric is the viral coefficient — if it's above 1, you have exponential growth.
+
+Lenny: What about product-led growth companies?
+
+Elena: PLG companies often combine multiple loops. A content loop might work like this: users create content, that content gets indexed and drives SEO traffic, new users discover the product, and some become creators themselves. Dropbox's sharing loop is a classic example — shared folders bring in new users who then share more folders.
+
+Lenny: How do you know which loop to focus on?
+
+Elena: Start by mapping your current user journey and identifying where users naturally create value for other users. Measure loop velocity — how fast a cycle completes — and loop yield — how many new users each cycle produces. Prioritize loops with high yield and short cycle time.
+
+Lenny: What mistakes do teams make?
+
+Elena: The biggest mistake is optimizing a funnel when you should be building a loop. Teams pour money into paid acquisition when they haven't fixed retention or built viral mechanics. Another mistake is trying to force a loop that doesn't fit the product's natural usage pattern.
+
+Lenny: Any advice for early-stage startups?
+
+Elena: Focus on one loop. Make it work before adding complexity. For most B2B SaaS, the sales-assist loop — product usage data helps sales close deals — is underrated. For consumer, social proof and sharing mechanics are usually the highest leverage.
+
+Lenny: Elena, this has been incredibly helpful. Where can people find you?
+
+Elena: I'm on LinkedIn and write about growth at elenaverna.com. Thanks for having me!

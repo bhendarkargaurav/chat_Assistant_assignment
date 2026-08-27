@@ -1,0 +1,32 @@
+# Lenny's Podcast — Sample Transcript (Product-Market Fit)
+
+Host: Lenny Rachitsky
+Guest: Marc Andreessen
+
+Lenny: Marc, you've seen thousands of startups. How do you think about product-market fit?
+
+Marc: Product-market fit is the only thing that matters in the early days. You know you have it when customers are pulling the product out of your hands — when growth feels like you're chasing demand rather than creating it.
+
+Lenny: What are the signals?
+
+Marc: Retention is the north star. If users come back without you begging them, you're onto something. Word of mouth is another strong signal — when customers become your sales force. And when you can't hire fast enough to handle inbound demand, that's PMF.
+
+Lenny: What about metrics?
+
+Marc: Sean Ellis's survey is useful — if 40% of users say they'd be very disappointed without your product, you're in the zone. But qualitative signals matter too: are users hacking your product for unintended use cases? Are they angry when it goes down?
+
+Lenny: How long should founders search for PMF?
+
+Marc: As long as it takes, but be honest with yourself. If after 18 months nothing is clicking, you may need to pivot dramatically. The graveyard of startups is full of companies that had great teams but never found PMF.
+
+Lenny: Advice for finding PMF faster?
+
+Marc: Talk to users constantly. Ship fast and measure. Don't fall in love with your solution — fall in love with the problem. The best founders I've seen are obsessed with understanding customer pain, not building features.
+
+Lenny: What role does growth play before PMF?
+
+Marc: Growth before PMF is a trap. You can pour gasoline on a fire, but if there's no fire, you're just wasting fuel. Fix retention first. Make something people want. Then worry about scaling.
+
+Lenny: Marc, thank you for joining us.
+
+Marc: My pleasure. Keep building.
