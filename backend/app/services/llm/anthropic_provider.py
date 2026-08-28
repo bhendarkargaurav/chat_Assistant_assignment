@@ -26,7 +26,7 @@ class AnthropicProvider(LLMProvider):
         try:
             response = self.client.messages.create(
                 model=self.settings.anthropic_model,
-                max_tokens=2048,
+                max_tokens=self.settings.anthropic_max_tokens,
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}],
             )

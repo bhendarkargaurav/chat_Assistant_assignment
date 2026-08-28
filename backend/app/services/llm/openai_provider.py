@@ -28,6 +28,7 @@ class OpenAIProvider(LLMProvider):
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
+                timeout=self.settings.llm_timeout_seconds,
             )
             return response.choices[0].message.content or ""
         except Exception as exc:

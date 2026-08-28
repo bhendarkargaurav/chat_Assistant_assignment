@@ -46,6 +46,7 @@ class Settings(BaseSettings):
         default="claude-3-5-haiku-20241022",
         alias="ANTHROPIC_MODEL",
     )
+    anthropic_max_tokens: int = Field(default=4096, alias="ANTHROPIC_MAX_TOKENS")
 
     embedding_dimension: int = Field(default=768, alias="EMBEDDING_DIMENSION")
     chunk_size: int = Field(default=800, alias="CHUNK_SIZE")

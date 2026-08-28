@@ -1,0 +1,50 @@
+Lenny's Podcast — Product-Led Onboarding and Activation
+Guest: Wes Bush (ProductLed)
+
+Lenny Rachitsky: Wes, you coined the term "product-led growth" for a lot of people. Let's start at the beginning of the user journey — what does great activation actually look like?
+
+Wes Bush: Activation is not a single moment — it's a sequence of small wins that build toward the "aha moment" where a user understands why your product exists and wants to come back. Every product has its own version of this, but the underlying structure is always the same: you help the user accomplish one meaningful thing as fast as possible, and that one thing has to be something they actually care about, not something that's convenient for you to demo.
+
+The mistake I see constantly is what I call the "empty room" problem. A user signs up, they land in your app, and it's completely blank. No data, no sample content, no guidance, no quick win available. They're standing in an empty room and they don't know what furniture looks like. Of course they leave. You have to pre-populate the experience with enough scaffolding that the user can see what success looks like before they've done any work.
+
+Lenny: What are the mechanics of a good onboarding checklist versus a bad one?
+
+Wes Bush: A good checklist has three characteristics. It's short — five items maximum, ideally three. Each item delivers visible value when completed, not just "complete your profile" or "add a team member" for its own sake. And it has a clear end state — the user knows what happens when they finish all the items. Maybe they unlock a feature, or they get a results report, or they just see a completion animation. The end state matters psychologically.
+
+A bad checklist is long, feature-focused rather than outcome-focused, and has items that only benefit the vendor ("connect your CRM so we can understand your data") rather than the user. Users are not naive. They know when onboarding is designed to extract data rather than deliver value.
+
+The best onboarding I've studied is personalized before step one. You ask two or three qualification questions — role, company size, primary goal — and then you show a different onboarding path based on the answers. A developer and a marketer using the same product have different jobs to be done, and a one-size-fits-all onboarding serves neither of them well.
+
+Lenny: How do you measure activation? What's the right metric?
+
+Wes Bush: The activation metric has to be specific to your product, and you have to find it empirically. The process is: take your cohort of users who were still active at 90 days (or whatever your retention window is), and compare them to the cohort that churned. Then ask: what actions did the retained cohort take in their first two weeks that the churned cohort did not?
+
+Usually you'll find one or two actions with very high predictive power. Maybe retained users invited at least one colleague in the first week. Maybe they completed a specific workflow. Maybe they connected an integration. That action is your activation event.
+
+Once you've identified it, you calculate the activation rate: what percentage of new signups reach that event within the window. Then you relentlessly optimize to increase that percentage.
+
+One warning: the activation event should be correlated with genuine value delivery, not just usage. If users are completing the activation event but still churning, the event is not the right one — it's a leading indicator of activity but not of perceived value.
+
+Lenny: What role does in-app messaging play in activation?
+
+Wes Bush: In-app messaging is one of the highest-leverage tools in activation and it's massively underused relative to email. When a user is in your product and they're stuck, the right message at the right moment can save them. When they complete a step and you congratulate them — even with a two-line tooltip — it reinforces the behavior.
+
+The key is timing and relevance. A message that triggers the moment a user first lands in the app is almost always premature — they haven't had a chance to do anything yet. The high-value moments are: immediately after an action (positive reinforcement), when a user abandons mid-flow (rescue nudge), and when a user has been inactive for 48 hours after signup (re-engagement).
+
+Behavioral segmentation makes this dramatically better. Don't send the same message to every new user. Send a message based on what the user has and hasn't done. If someone created a project but never invited a teammate, send them the message about collaboration. If someone imported data but never ran a report, send them the quick-start for reports.
+
+Lenny: What's your take on product tours — the overlay walkthroughs that guide users through the UI?
+
+Wes Bush: Product tours are a crutch for a confusing interface. If your product requires a six-step overlay to explain what to do, the product is too hard to use. The tour is treating the symptom, not the disease.
+
+That said, there are legitimate uses. For complex products with many features, a contextual tour that activates the first time you enter a new area of the product is helpful. For enterprise products where onboarding is assisted anyway, a walkthrough sets up the context for the sales engineer or customer success manager.
+
+The trap is building a product tour and then assuming you've solved onboarding. Tours have terrible completion rates — typically 20 to 30 percent — and the users who skip them are exactly the ones you most need to activate. You need to design the product so it's navigable without the tour, and then use the tour only as a supplemental layer for the users who explicitly want it.
+
+Lenny: Last question — what's the single highest-ROI onboarding change a product team can make?
+
+Wes Bush: Remove one step from the signup or setup flow. Every additional step between a user's intention and their first meaningful action is a leaky hole. The research on this is consistent: every additional form field, permission screen, or configuration step reduces conversion by a measurable percentage.
+
+Look at your activation funnel and find the step with the highest drop-off rate. Ask: is this step necessary for the user's benefit, or is it necessary for our benefit? If it's for our benefit — collecting data, prompting a profile completion — move it later in the journey or eliminate it. If it's necessary for the user's benefit, ask whether you can defer it until after they've experienced their first win.
+
+The best onboarding experiences I've seen all share one characteristic: they give the user a result before they ask the user for anything. Give first, ask second. That is the entire playbook.

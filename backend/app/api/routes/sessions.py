@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
 from backend.app.db.session import get_db
@@ -19,8 +19,12 @@ def create_session(
 
 
 @router.get("", response_model=list[SessionResponse])
-def list_sessions(db: Session = Depends(get_db)) -> list[SessionResponse]:
-    return SessionService(db).list_sessions()
+def list_sessions(
+    limit: int = Query(default=50, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
+    db: Session = Depends(get_db),
+) -> list[SessionResponse]:
+    return SessionService(db).list_sessions(limit=limit, offset=offset)
 
 
 @router.get("/{session_id}", response_model=SessionDetailResponse)

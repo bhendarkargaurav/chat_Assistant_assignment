@@ -1,0 +1,54 @@
+Lenny's Podcast — Monetization and Pricing Strategy
+Guest: Madhavan Ramanujam (Simon-Kucher & Partners)
+
+Lenny Rachitsky: Madhavan, you wrote the book — literally — on monetization. What is the most common pricing mistake you see product teams make?
+
+Madhavan Ramanujam: Building the product first and thinking about pricing last. Companies treat pricing as a finance problem — cost plus margin, or competitive benchmarking. But pricing is a product design problem. The question "what is this worth to my customer?" should shape what you build, not the other way around.
+
+The monetization moment has to come before the product roadmap. When you interview customers and discover they would pay a significant premium for feature X over feature Y, that tells you where to invest your engineering hours. Most teams do it backwards — they build what feels technically interesting, then run a pricing survey, then wonder why customers push back on the price.
+
+Lenny: How do you find willingness to pay early, before you have a product?
+
+Madhavan Ramanujam: Three techniques that work.
+
+First, the van Westendorp Price Sensitivity Meter. You ask customers four questions: At what price would this product be so cheap you'd question its quality? At what price is it starting to feel like a bargain? At what price is it starting to feel expensive? At what price would you not buy it no matter what? The intersections of those curves give you an acceptable price range and a sweet spot.
+
+Second, conjoint analysis. You present customers with trade-offs between feature bundles at different price points and ask them to choose. The output tells you exactly how much each feature is worth in dollar terms and which combinations maximize willingness to pay. It's more work but far more precise.
+
+Third — and this is underused — simply ask a customer to pay. Not hypothetically. Show them a price and a buy button. The discomfort in the room when you ask someone to reach for their wallet tells you more than a hundred survey responses.
+
+Lenny: What's your take on usage-based pricing versus subscriptions?
+
+Madhavan Ramanujam: Usage-based pricing aligns value and cost beautifully in theory. You pay for what you use; the vendor grows with your success. AWS, Twilio, Stripe — these are companies that built enormous businesses on this model.
+
+But it introduces revenue unpredictability that can destabilize the business. A CFO who signed a six-figure SaaS subscription will fight to keep it in the budget because it's a sunk cost. A CFO who sees a usage-based invoice going up every month will put it under a microscope and look for ways to reduce consumption.
+
+The hybrid model is often the best answer: a platform fee or base subscription that covers a minimum level of usage, plus overage pricing above that. You get the predictability of subscription revenue plus the upside of usage-based expansion. Salesforce, Snowflake, and Datadog all use variations of this.
+
+Lenny: How do you think about packaging — good, better, best tiers versus feature gating?
+
+Madhavan Ramanujam: Good, better, best (also called tiered packaging) works when you have genuinely distinct customer segments with different needs and willingness to pay. The tiers have to reflect value differences that customers recognize, not arbitrary feature removal to push upgrades.
+
+The mistake is creating a "good" tier that's so crippled it frustrates users and generates support load, while adding so little margin that it barely covers acquisition cost. If a tier doesn't make you happy when customers choose it, you've priced it wrong or drawn the feature lines wrong.
+
+Feature gating — where specific high-value features are locked behind a paywall — works best for features that have clear, demonstrable ROI. If I can show you that the advanced analytics module saves your team five hours a week and your hourly rate is $100, putting that module in the premium tier at $300/month is a straightforward conversation. Gating features with unclear ROI just creates frustration.
+
+Lenny: What about freemium? There's a lot of debate about whether it works.
+
+Madhavan Ramanujam: Freemium works when three conditions are met. One: the product has strong network effects or viral distribution — free users generate value for paid users, or free users spread the product. Slack and Zoom both had this. Two: the conversion path from free to paid is short and obvious — there's a natural ceiling a free user hits where upgrading is the obvious next step. Three: the cost to serve free users is low enough that you can sustain the model until conversion.
+
+Freemium fails when it's really just a long free trial by another name — no viral loop, no natural upgrade trigger, no cost discipline. In those cases you end up with a large user base that consumes support and infrastructure resources without converting to revenue.
+
+The freemium decision is also a sales motion decision. If your deal size is $50,000 and your buyers are VP-level, freemium is probably not the distribution model — your buyers don't self-serve. If your deal size is $50 per month and your buyers are individual contributors who can sign up with a credit card, freemium makes sense.
+
+Lenny: If a company is underpricing, how do they raise prices without losing customers?
+
+Madhavan Ramanujam: A few principles.
+
+Grandfather existing customers. Reward loyalty. Tell them their price is locked in as long as they stay on the current plan. This reduces churn and gives you cover to raise prices on new customers.
+
+Justify the increase with value delivered. "We raised prices because our costs went up" loses customers. "We raised prices because we've shipped 40 new features in the last 12 months including X, Y, and Z that save you N hours a week" is a different conversation.
+
+Raise in steps, not all at once. A 30% price increase feels like a shock. Three 10% increases over three years are much more absorbable, especially if each is tied to a product release.
+
+And — this is the most important thing — if customers push back hard and many of them leave, you needed to hear that. The market is telling you that your price and your perceived value are out of alignment. That's valuable information that a survey would never have surfaced.

@@ -42,7 +42,30 @@ def init_db() -> None:
     with engine.begin() as conn:
         conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
     Base.metadata.create_all(bind=engine)
+    _create_vector_indexes(engine)
     logger.info("Database initialized")
+
+
+def _create_vector_indexes(engine) -> None:
+    """Create HNSW vector index on chunks.embedding for fast cosine search.
+
+    HNSW (Hierarchical Navigable Small World) gives sub-linear ANN retrieval
+    at the cost of a small accuracy trade-off.  We use 'vector_cosine_ops'
+    because RAGService queries with cosine_distance().  The index is created
+    only if it does not already exist so repeated restarts are safe.
+    """
+    with engine.begin() as conn:
+        conn.execute(
+            text(
+                """
+                CREATE INDEX IF NOT EXISTS chunks_embedding_hnsw_idx
+                ON chunks
+                USING hnsw (embedding vector_cosine_ops)
+                WITH (m = 16, ef_construction = 64)
+                """
+            )
+        )
+    logger.info("HNSW vector index ensured on chunks.embedding")
 
 
 def reset_engine() -> None:

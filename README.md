@@ -226,9 +226,47 @@ See `.env.example` for the full list. Key variables:
 | `LLM_MAX_ATTEMPTS` / `LLM_TIMEOUT_SECONDS` | `3` / `180` | LLM retry budget and timeout |
 | `EMBEDDING_MAX_ATTEMPTS` / `EMBEDDING_TIMEOUT_SECONDS` | `3` / `60` | Embedding retry budget and timeout |
 | `RETRY_BASE_DELAY_SECONDS` | `0.5` | Backoff base for retries |
+| `ANTHROPIC_MAX_TOKENS` | `4096` | Max tokens for Anthropic responses (headroom for essays) |
 | `LOG_FORMAT` | `text` | `text` or `json` structured logs |
+
+## Manual Test Plan
+
+A quick checklist for verifying the key flows without running automated tests.
+
+**Prerequisites:** API running, transcripts ingested, `SESSION` variable set (see Quick Start).
+
+| # | Step | Expected |
+|---|------|----------|
+| 1 | `GET /health` | `{"status": "ok"}` |
+| 2 | `GET /ready` | `db: true`, `embeddings: true` (ollama must be running) |
+| 3 | `POST /sessions` with a title | 201 with a UUID `id` |
+| 4 | `POST /sessions/{id}/chat` — `"What are growth loops?"` | Answer contains `[Source: …]` citation; `routing.intent` is `qa` |
+| 5 | Follow-up: `"Tell me more about the referral loop"` | Answer references prior context; same `session_id` |
+| 6 | `"Write a Ship 30 essay about retention"` | `routing.intent` is `ship30_essay`; `artifacts` array non-empty; `metadata.word_count` between 1100–1400 |
+| 7 | `GET /artifacts/{id}` from step 6 | Full markdown content with `## Sources` section |
+| 8 | `"Turn that into an HTML landing page"` | `routing.intent` is `artifact_html`; new artifact with `kind: html` |
+| 9 | `GET /artifacts/{id}/raw` for the HTML artifact in a browser | Page renders; DevTools Network shows `Content-Security-Policy: default-src 'none'` header |
+| 10 | `GET /metrics` | `agent_turns_total` counter reflects the turns taken |
+| 11 | Stop Ollama; `GET /ready` | `ollama: false`, `embeddings: false`; API still responds (does not crash) |
+| 12 | Switch `LLM_PROVIDER=openai` in `.env`, restart; repeat step 4 | `provider` in response is `openai` |
+| 13 | `GET /sessions?limit=2&offset=0` | Returns at most 2 sessions |
+| 14 | `DELETE /artifacts/{id}` | 204; subsequent `GET /artifacts/{id}` returns 404 |
+
+---
+
+## Project Documents
+
+| Document | Path | Purpose |
+|----------|------|---------|
+| PRD | `PRD.md` | User, problem, assumptions, scope, acceptance criteria |
+| Architecture | `docs/ARCHITECTURE.md` | Data model, request flow, failure semantics, security |
+| Design | `docs/design.md` | UI/UX principles, IA, interaction states, accessibility |
+| Agent transcripts | `docs/agent_transcripts/` | Coding session logs with issues found and corrections made |
+
+---
 
 ## Scope
 
 Backend only — Part 1 (RAG chat) plus Part 2 (agent routing, Ship 30 essays, artifacts).
-The frontend is intentionally not implemented.
+The frontend is intentionally not implemented. See `docs/design.md` for the full
+UI/UX specification that a frontend team can build from directly.

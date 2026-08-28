@@ -25,9 +25,12 @@ services:
       DATABASE_URL: postgresql://lenny:lenny@db:5432/lenny_assistant
       OLLAMA_BASE_URL: http://host.docker.internal:11434
       LLM_PROVIDER: ollama
+      LOG_FORMAT: json
+      LOG_LEVEL: INFO
     depends_on:
       db:
         condition: service_healthy
+    restart: unless-stopped
     volumes:
       - ./data:/app/data:ro
     extra_hosts:

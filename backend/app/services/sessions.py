@@ -25,8 +25,15 @@ class SessionService:
             raise NotFoundError(f"Session {session_id} not found")
         return SessionDetailResponse.model_validate(session)
 
-    def list_sessions(self) -> list[SessionResponse]:
+    def list_sessions(
+        self,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> list[SessionResponse]:
         sessions = self.db.scalars(
-            select(ChatSession).order_by(ChatSession.created_at.desc())
+            select(ChatSession)
+            .order_by(ChatSession.created_at.desc())
+            .limit(limit)
+            .offset(offset)
         ).all()
         return [SessionResponse.model_validate(s) for s in sessions]

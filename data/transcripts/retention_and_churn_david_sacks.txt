@@ -1,0 +1,44 @@
+Lenny's Podcast — Retention, Churn, and the North Star Metric
+Guest: David Sacks (Craft Ventures)
+
+Lenny Rachitsky: David, you've talked about the idea that most companies measure the wrong thing. What's the single most important retention metric for a SaaS business?
+
+David Sacks: It's net revenue retention — NRR. If your NRR is above 100%, your existing customers are spending more with you over time even if you never sign a new customer. That's a compounding machine. Slack had NRR above 130% at the time of its IPO. That means even with zero new customer acquisition, the business would grow 30% year over year purely from expansion revenue inside the existing base.
+
+Lenny: What does churn actually tell you that NRR doesn't?
+
+David Sacks: Gross revenue churn tells you how much revenue you lose from cancellations and downgrades before you account for expansion. It's a measure of product-market fit quality. If you have 15% annual gross churn in a B2B SaaS product, that means one in six customers decides your product is not worth the price every year. That is a product problem, not a sales problem. No amount of top-of-funnel activity fixes a product that customers walk away from.
+
+The mental model I use: gross churn is a hole in the bucket. Expansion revenue is you pouring water in faster. NRR above 100% means you're filling it faster than it leaks. But you still want to plug the hole, because leaky buckets require ever-increasing acquisition spend just to maintain revenue.
+
+Lenny: How do you diagnose why customers are churning?
+
+David Sacks: Exit interviews are underrated. Most companies do them inconsistently or not at all. The question that reveals the most is not "why are you leaving?" — that gets you polite non-answers. The question is: "What would have to be true for you to stay?" That question forces the customer to articulate what they actually needed and didn't get. Ninety percent of the time the answers cluster around two or three product gaps.
+
+The other signal is time-to-value. If customers who churned in the first 90 days consistently had a longer time-to-first-key-action than customers who stayed, that's an onboarding problem. You can fix it. Short time-to-value is one of the best predictors of long-term retention.
+
+Lenny: You've mentioned the difference between engaged churners and disappointed churners. Can you explain that?
+
+David Sacks: An engaged churner used your product heavily, got value from it, and then left for a specific reason — usually price, a missing feature, or a competitor that does one thing better. These customers are recoverable. They like you; they just had a specific unmet need.
+
+A disappointed churner never reached the activation moment. They signed up, poked around, and quietly stopped logging in. These customers are a signal that your activation flow is broken or that you're attracting the wrong audience at the top of the funnel. If 40% of your churners are disappointed churners, no retention tactic helps — you need to fix acquisition and activation first.
+
+Lenny: What's your framework for thinking about activation?
+
+David Sacks: Activation is the moment a new user realizes "this product is for me." Every product has a specific action that correlates with long-term retention. For Slack it was sending your first message in a channel. For Dropbox it was putting your first file in the folder and seeing it sync. For a B2B analytics tool it might be the first time you export a dashboard and share it with your manager.
+
+The job is to identify that action empirically — look at your cohorts that retained at 90 days versus the ones that churned, and find the action that separates them — and then redesign your onboarding to get every new user to that action as fast as possible. Remove every step between signup and that first key action. That is the whole activation playbook.
+
+Lenny: How do you think about cohort analysis for retention?
+
+David Sacks: You want to look at monthly or weekly cohorts and draw retention curves — what percentage of users from cohort X are still active after 30, 60, 90, 180, 365 days? The shape of the curve matters as much as the endpoint.
+
+A curve that drops steeply in the first 30 days and then flattens is an activation problem — users who make it past 30 days are sticky, but you're losing too many before they reach activation. A curve that decays slowly and steadily over a year is a value-delivery problem — users stay for a while but gradually conclude the product isn't essential to their workflow.
+
+The ideal curve drops sharply in the first two weeks (eliminating people who were never a good fit), then flattens quickly and stays flat. That flat tail is your retained power users. If you can move even 10% of early churners to the retained cohort, the long-run revenue impact is enormous because of compounding.
+
+Lenny: Last question — what retention mistake do you see most often at early-stage companies?
+
+David Sacks: Prioritizing acquisition over retention. It's a seductive trap. New customers feel like progress. The CRM lights up. The sales team is energized. But if you're churning 25% of customers annually, you need to acquire 25% new customers just to stay flat. You're running to stand still, and you're spending more and more on sales and marketing to maintain the baseline.
+
+The companies that win are the ones that obsess over the customers they already have. Answer their support tickets faster than seems reasonable. Ship the features your top customers ask for. Build the feedback loop that makes customers feel heard. Retention is a product and culture problem first, and a marketing problem never.

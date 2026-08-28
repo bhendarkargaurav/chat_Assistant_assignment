@@ -144,3 +144,4 @@ class Artifact(Base):
     )
 
     session: Mapped["Session | None"] = relationship(back_populates="artifacts")
+    message: Mapped["Message | None"] = relationship(foreign_keys=[message_id])

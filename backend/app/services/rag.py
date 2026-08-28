@@ -2,7 +2,7 @@ import logging
 
 from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy.orm import Session, joinedload
+from sqlalchemy.orm import Session
 
 from backend.app.config import get_settings
 from backend.app.db.models import Chunk, Document
@@ -58,17 +58,3 @@ class RAGService:
 
         logger.info("Retrieved %s chunks for query", len(citations))
         return citations
-
-    def get_chunk_contents(self, chunk_ids: list) -> list[str]:
-        if not chunk_ids:
-            return []
-        stmt = (
-            select(Chunk)
-            .options(joinedload(Chunk.document))
-            .where(Chunk.id.in_(chunk_ids))
-        )
-        chunks = self.db.scalars(stmt).all()
-        return [
-            f"[Source: {chunk.document.title} (#{chunk.chunk_index})]\n{chunk.content}"
-            for chunk in chunks
-        ]
